@@ -15,4 +15,45 @@ header {
 h1, h2, h3 {
     color: #008080;
 }
+main {
+    max-width: 600px; 
+    margin: 0 auto;
+    padding: 15px; 
+    background-color: #252525;
+    border-radius: 10px;
+}
+footer {
+    margin-top: 20px; 
+    text-align: center;
+    font-size: 0.8em;
+    color: #999;
+}
+footer a {
+    color: #008080;
+}
 
+/* Search Section */
+#search-section {
+    text-align: center;
+    margin-bottom: 20px; 
+}
+#pokemon-input {
+    padding: 8px; 
+    font-size: 14px; 
+    border: 2px solid #008080;
+    border-radius: 4px;
+    margin-right: 5px;
+    width: 180px; 
+    background-color: #333;
+    color: #eeeeee;
+}
+#fetch-button {
+    padding: 8px 12px; 
+    font-size: 14px; 
+    background-color: #008080;
+    color: white;
+    border-radius: 4px;
+}
+#fetch-button:hover {
+    background-color: #006666;
+}
