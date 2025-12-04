@@ -63,3 +63,32 @@ function displayPokemonCard(data) {
         `;
     }).join(''); // put all the rows together
 }
+  //the final HTML structure after you look up the pokemon 
+
+  //artwork comes from the api
+    let htmlContent = `
+        <div class="pokemon-card">
+            <h2 class="card-name">${name} (#${id})</h2>
+            <img src="${image}" alt="${name} official artwork" class="pokemon-image"> 
+            
+            <div class="card-details">
+                <p><strong>Type(s):</strong> <span>${types}</span></p>
+                <p><strong>Abilities:</strong> <span>${abilities}</span></p>
+                <p><strong>Height:</strong> ${data.height / 10} m</p>
+                <p><strong>Weight:</strong> ${data.weight / 10} kg</p>
+                
+                <h3>Base Stats</h3>
+                <table class="stats-table">
+                    <tbody>
+                        ${statsTableContent}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    `;
+
+    // inject the content into the container
+    cardContainer.innerHTML = htmlContent;
+
+// ttach the fetch poke to the btn 
+fetchButton.addEventListener('click', fetchPokemon);
