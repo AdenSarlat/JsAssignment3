@@ -29,4 +29,25 @@ function fetchPokemon() {
             // IT WORKED show the detailed Pokémon card
                          displayPokemonCard(data); 
         })
+        //function to process and display the JSON data
+
+function displayPokemonCard(data) {
+    // use and format  info
+                const name = data.name.toUpperCase();
+                        const id = data.id;
+    // Use the official artwork of the pokemon 
+    const image = data.sprites.other["official-artwork"].front_default || data.sprites.front_default; 
+    
+    // process  pokemon Types and moves using map
+    const types = data.types
+        .map(typeInfo => typeInfo.type.name.toUpperCase())
+        .join(' / '); // join with a separator
+
+    const abilities = data.abilities
+        .map(abilityInfo => {
+            // eplace hyphens and capitalize
+            return abilityInfo.ability.name.replace(/-/g, ' ').toUpperCase(); 
+        })
+                .join(', '); // join with a comma and space
+}
 }
