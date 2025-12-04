@@ -1,23 +1,23 @@
 const inputElement = document.getElementById('pokemon-input');
 const fetchButton = document.getElementById('fetch-button');
-const cardContainer = document.getElementById('pokemon-card-container');
+const cardContainer = document.getElementById('pokemon-displaycard-container');
 const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
 //function to handle the API call 
 function fetchPokemon() {
-    //  gget  the user input 
+    //  gget  the user input 
     const pokemonQuery = inputElement.value.toLowerCase().trim();
 
     if (!pokemonQuery) {
         cardContainer.innerHTML = '<p class="error"> enter a Pokémon name or Pokedex Number!</p>'; //when the search bar is empty display this
         return;
     }
-                const finalURL = BASE_URL + pokemonQuery;
+    const finalURL = BASE_URL + pokemonQuery;
 
-      cardContainer.innerHTML = `<h2>findingg**${pokemonQuery}**</h2>`;
-    
+    cardContainer.innerHTML = `<h2>findingg**${pokemonQuery}**</h2>`;
+
     // apicall using fetch()
-                     fetch(finalURL)
+    fetch(finalURL)
         .then(response => {
             // lookk for a bad response that doesnt work, not a pokemon name or correct number
             if (!response.ok) {
@@ -27,18 +27,24 @@ function fetchPokemon() {
         })
         .then(data => {
             // IT WORKED show the detailed Pokémon card
-                         displayPokemonCard(data); 
+            displayPokemonCard(data);
         })
-        //function to process and display the JSON data
+        // i missed error handler the first time 
+        .catch(error => {
+            console.error('couldnt fetch the pokemon:', error);
+            cardContainer.innerHTML = `<p class="error">cant find that Pokémon Error: ${error.message}</p>`;
+        });
+}
 
+//function to process and display the JSON data
 function displayPokemonCard(data) {
-    // use and format  info
-                const name = data.name.toUpperCase();
-                        const id = data.id;
+    // use and format  info
+    const name = data.name.toUpperCase();
+    const id = data.id;
     // Use the official artwork of the pokemon 
-    const image = data.sprites.other["official-artwork"].front_default || data.sprites.front_default; 
-    
-    // process  pokemon Types and moves using map
+    const image = data.sprites.other["official-artwork"].front_default || data.sprites.front_default;
+
+    // process  pokemon Types and moves using map
     const types = data.types
         .map(typeInfo => typeInfo.type.name.toUpperCase())
         .join(' / '); // join with a separator
@@ -46,11 +52,11 @@ function displayPokemonCard(data) {
     const abilities = data.abilities
         .map(abilityInfo => {
             // eplace hyphens and capitalize
-            return abilityInfo.ability.name.replace(/-/g, ' ').toUpperCase(); 
+            return abilityInfo.ability.name.replace(/-/g, ' ').toUpperCase();
         })
-                .join(', '); // join with a comma and space
-}
-// make poke Stats into htmll table rows
+        .join(', '); // join with a comma and space
+
+    // make poke Stats into htmll table rows
     const statsTableContent = data.stats.map(statInfo => {
         // api path statInfo.base_stat and statInfo.stat.name
         const statName = statInfo.stat.name.replace(/-/g, ' ').toUpperCase();
@@ -61,11 +67,10 @@ function displayPokemonCard(data) {
                 <td>${baseStat}</td>
             </tr>
         `;
-    }).join(''); // put all the rows together
-}
-  //the final HTML structure after you look up the pokemon 
+    }).join(''); //put all the rows together
 
-  //artwork comes from the api
+    //the final HTML structure after you look up the pokemon 
+    //artwork comes from the api
     let htmlContent = `
         <div class="pokemon-card">
             <h2 class="card-name">${name} (#${id})</h2>
@@ -89,6 +94,6 @@ function displayPokemonCard(data) {
 
     // inject the content into the container
     cardContainer.innerHTML = htmlContent;
-
+} 
 // ttach the fetch poke to the btn 
 fetchButton.addEventListener('click', fetchPokemon);
