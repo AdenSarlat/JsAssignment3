@@ -50,4 +50,16 @@ function displayPokemonCard(data) {
         })
                 .join(', '); // join with a comma and space
 }
+// make poke Stats into htmll table rows
+    const statsTableContent = data.stats.map(statInfo => {
+        // api path statInfo.base_stat and statInfo.stat.name
+        const statName = statInfo.stat.name.replace(/-/g, ' ').toUpperCase();
+        const baseStat = statInfo.base_stat;
+        return `
+            <tr>
+                <th>${statName}</th>
+                <td>${baseStat}</td>
+            </tr>
+        `;
+    }).join(''); // put all the rows together
 }
