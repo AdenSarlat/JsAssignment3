@@ -1,7 +1,8 @@
-const inputElement = document.getElementById('pokemon-input');
-const fetchButton = document.getElementById('fetch-button');
-const cardContainer = document.getElementById('pokemon-displaycard-container');
-const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';
+const inputElement = document.getElementById('pokemon-input');    // i used this video to get a grasp on how to use pokeapi https://www.youtube.com/watch?v=dVtnFH4m_fE&t=1s
+const fetchButton = document.getElementById('fetch-button');                         
+const cardContainer = document.getElementById('pokemon-displaycard-container');             // i also used the offical website to see resource lists https://pokeapi.co/docs/v2
+
+const BASE_URL = 'https://pokeapi.co/api/v2/pokemon/';                                        // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 
 //function to handle the API call 
 function fetchPokemon() {

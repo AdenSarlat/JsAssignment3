@@ -1,26 +1,25 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    margin: 0;
     padding: 10px; 
-    background-color: #1a1a1a;
-    color: #eeeeee;
+    background-color: #1a1a1a; /* The main dark background color for the page */
+    color: #eeeeee; /* Sets the default text color to a light grey */
 }
 header {
-    text-align: center;
+    text-align: center; /* Centers the main title of the app. */
     padding: 15px 0; 
-    border-bottom: 2px solid #008080;
+    border-bottom: 2px solid #008080; /* teal accent line to separate the header from the content. */
     margin-bottom: 20px;
 }
-h1, h2, h3 {
+h1, h2, h3 { /* all headers have the teal color */
     color: #008080;
 }
 main {
-    max-width: 600px; 
+    max-width: 600px; /* Limits the maximum width of the content  */
     margin: 0 auto;
     padding: 15px; 
-    background-color: #252525;
-    border-radius: 10px;
+    background-color: #252525; /* A slightly lighter dark gray to make the main content pop off the background */
+    border-radius: 10px; /* makes the corner more circular */
 }
 footer {
     margin-top: 20px; 
@@ -41,7 +40,7 @@ footer a {
     padding: 8px; 
     font-size: 14px; 
     border: 2px solid #008080;
-    border-radius: 4px;
+    border-radius: 4px; /* Slightly rounded corners to match the overall design. */
     margin-right: 5px;
     width: 180px; 
     background-color: #333;
@@ -52,7 +51,7 @@ footer a {
     font-size: 14px; 
     background-color: #008080;
     color: white;
-    border-radius: 4px;
+    border-radius: 4px; /* Rounded corners to match. */
 }
 #fetch-button:hover {
     background-color: #006666;
@@ -62,13 +61,13 @@ footer a {
 .pokemon-card {
     border: 2px solid #008080;
     padding: 15px; /* Significantly reduced card padding */
-    border-radius: 10px;
+    border-radius: 10px; 
     text-align: center;
-    background-color: #333;
+    background-color: #333; 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 .card-name {
-    font-size: 1.5em;
+    font-size: 1.5em; /* Slightly larger font size for the Pokémon's name. */
     margin-bottom: 5px; 
 }
 .pokemon-image {
@@ -77,7 +76,7 @@ footer a {
     margin: 10px auto; 
     background-color: #252525;
     border-radius: 50%;
-    border: 3px solid #008080;
+    border: 3px solid #008080; /* teal ring around picture */
 }
 .card-details {
     padding: 10px; 
@@ -92,7 +91,7 @@ footer a {
     font-size: 0.9em; 
 }
 .card-details strong {
-    color: #008080;
+    color: #008080; /* The labels like Type get the teall color. */
     display: inline-block;
     min-width: 80px; 
 }
