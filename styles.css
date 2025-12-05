@@ -57,3 +57,42 @@ footer a {
 #fetch-button:hover {
     background-color: #006666;
 }
+
+/* Pokemon Card Display */
+.pokemon-card {
+    border: 2px solid #008080;
+    padding: 15px; /* Significantly reduced card padding */
+    border-radius: 10px;
+    text-align: center;
+    background-color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+.card-name {
+    font-size: 1.5em;
+    margin-bottom: 5px; 
+}
+.pokemon-image {
+    max-width: 120px; /* Significantly reduced image size */
+    height: auto;
+    margin: 10px auto; 
+    background-color: #252525;
+    border-radius: 50%;
+    border: 3px solid #008080;
+}
+.card-details {
+    padding: 10px; 
+    text-align: left;
+    background-color: #444;
+    border-radius: 5px;
+    margin-top: 10px; 
+}
+.card-details p {
+    margin: 5px 0; 
+    line-height: 1.4;
+    font-size: 0.9em; 
+}
+.card-details strong {
+    color: #008080;
+    display: inline-block;
+    min-width: 80px; 
+}
